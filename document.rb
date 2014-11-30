@@ -6,6 +6,7 @@ class Document
     @title = title
     @author = author
     @content = content
+    @read_only = true
   end
 
   def words
@@ -14,6 +15,12 @@ class Document
 
   def word_count
     words.size
+  end
+
+  def title=(new_title)
+    unless @read_only
+      @title = new_title
+    end
   end
 
 end
