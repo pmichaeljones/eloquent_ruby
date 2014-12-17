@@ -1,26 +1,11 @@
-class Document
-  attr_accessor :writable
-  attr_reader :title, :author, :content
-
-  def initialize(title, author, content)
-    @title = title
-    @author = author
-    @content = content
-    @read_only = true
+# turn "The" into "ehT"
+# turn "Patrick" into "kcirtaP"
+def reverse_string(string)
+  new_string = ""
+  until string.length == 0 do
+    last_letter = string[-1]
+    string.chop!
+    new_string << last_letter
   end
-
-  def words
-    @content.split
-  end
-
-  def word_count
-    words.size
-  end
-
-  def title=(new_title)
-    unless @read_only
-      @title = new_title
-    end
-  end
-
+  new_string
 end
